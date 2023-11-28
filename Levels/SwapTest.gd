@@ -1,4 +1,4 @@
-extends Area2D
+extends CollisionShape2D
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -11,6 +11,4 @@ func hide_tileset():
 	if get_tree().has_node("Layer1"):
 		var tileset = get_tree().get_node("Layer1")
 		tileset.visible = false
-
-
 
