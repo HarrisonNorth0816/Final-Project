@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://frb4d1osvrns"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kxmch"]
-[ext_resource type="Texture2D" uid="uid://k73eqvtjr1fl" path="res://Assets/Winter (3).png" id="2_8ab0o"]
+[ext_resource type="Texture2D" uid="uid://dnugpwfcys6fd" path="res://Assets/Winter (3).png" id="2_8ab0o"]
 [ext_resource type="AudioStream" uid="uid://bear6xwmykoha" path="res://Assets/Affidavit_A_childs_Lullaby.mp3" id="3_tbw3a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hyh1l"]
@@ -77,9 +77,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5q6g"]
-size = Vector2(28, 60)
+size = Vector2(116, 138.5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Collect"]]
 script = ExtResource("1_kxmch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -89,7 +89,7 @@ sprite_frames = SubResource("SpriteFrames_hdsie")
 animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-7, 1)
 shape = SubResource("RectangleShape2D_d5q6g")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
