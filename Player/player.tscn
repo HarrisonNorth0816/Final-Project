@@ -92,13 +92,7 @@ animation = &"Run"
 position = Vector2(-7, 1)
 shape = SubResource("RectangleShape2D_d5q6g")
 
-[node name="DashCooldown" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
-[node name="FreezeVelocityY" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
-[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
-[connection signal="timeout" from="FreezeVelocityY" to="." method="_on_freeze_velocity_y_timeout"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tbw3a")
+volume_db = -11.575
+autoplay = true
