@@ -1,8 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://frb4d1osvrns"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_kxmch"]
 [ext_resource type="Texture2D" uid="uid://h1ar6i55s8v8" path="res://Assets/Player/placeholderPlayer.png" id="2_uwajc"]
 [ext_resource type="Texture2D" uid="uid://ctaje6e87xyh0" path="res://Assets/player2.png" id="3_8cqmc"]
+
+[sub_resource type="GDScript" id="GDScript_fp3h3"]
+script/source = "extends CharacterBody2D
+	
+
+
+	move_and_slide()
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hdsie"]
 animations = [{
@@ -24,10 +31,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5q6g"]
-size = Vector2(28, 60)
+size = Vector2(60, 60)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_kxmch")
+script = SubResource("GDScript_fp3h3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
