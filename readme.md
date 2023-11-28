@@ -20,4 +20,4 @@ Assets, or resources used
 ## Future Development
 
 # Created by: Bread
-Harrison North
+Harrison North, Lily Sivertson, Penelope Watson, Issac William
