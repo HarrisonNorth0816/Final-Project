@@ -68,7 +68,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kx4jh")
 }],
-"loop": true,
+"loop": false,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -117,8 +117,7 @@ texture_filter = 1
 position = Vector2(6.66669, -46.6667)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_hdsie")
-animation = &"Jump"
-frame_progress = 0.730514
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -38.3333)
