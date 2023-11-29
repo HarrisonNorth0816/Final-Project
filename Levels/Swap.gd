@@ -12,6 +12,7 @@ func hide_tileset():
 		print("Hi!")
 
 func hide_sprite():
-	if get_tree().root.get_child(0).has_node("%TopLayer"):
+	print("test 1")
+	if get_tree().root.get_child(0).has_node("/root/Player/%TopLayer"):
 		%TopLayer.queue_free()
-		print("Bye!")
+		print('test2')
