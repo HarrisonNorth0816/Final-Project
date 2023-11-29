@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/iwill/Videos/movementTest.avi"
+movie_writer/movie_file="C:/Users/Harrison/Desktop/godot/movementTest.avi"
 
 [input]
 

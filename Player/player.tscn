@@ -1,14 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://frb4d1osvrns"]
+[gd_scene load_steps=10 format=3 uid="uid://frb4d1osvrns"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kxmch"]
-[ext_resource type="Texture2D" uid="uid://h1ar6i55s8v8" path="res://Assets/Player/placeholderPlayer.png" id="2_uwajc"]
-[ext_resource type="Texture2D" uid="uid://ctaje6e87xyh0" path="res://Assets/player2.png" id="3_8cqmc"]
+[ext_resource type="Texture2D" uid="uid://dubruyxj4kb04" path="res://Assets/Winter (3).png" id="2_6d50l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay2xq"]
+atlas = ExtResource("2_6d50l")
+region = Rect2(0, 0, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydbj"]
+atlas = ExtResource("2_6d50l")
+region = Rect2(1216, 608, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7x7v"]
+atlas = ExtResource("2_6d50l")
+region = Rect2(0, 0, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqlcb"]
+atlas = ExtResource("2_6d50l")
+region = Rect2(608, 0, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8byby"]
+atlas = ExtResource("2_6d50l")
+region = Rect2(1216, 0, 608, 608)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hdsie"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_uwajc")
+"texture": SubResource("AtlasTexture_ay2xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydbj")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_ay2xq")
 }],
 "loop": true,
 "name": &"Idle",
@@ -16,7 +41,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8cqmc")
+"texture": SubResource("AtlasTexture_f7x7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqlcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8byby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqlcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7x7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqlcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8byby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqlcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7x7v")
 }],
 "loop": true,
 "name": &"Run",
@@ -24,19 +73,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5q6g"]
-size = Vector2(28, 60)
+size = Vector2(136.667, 270)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Collect"]]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_kxmch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+position = Vector2(6.66669, -46.6667)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_hdsie")
-animation = &"Idle"
+animation = &"Run"
+frame_progress = 0.701647
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-5, -38.3333)
 shape = SubResource("RectangleShape2D_d5q6g")
 
 [node name="DashCooldown" type="Timer" parent="."]
@@ -50,27 +102,28 @@ one_shot = true
 [node name="WallDetection" type="Node2D" parent="."]
 
 [node name="topRight" type="RayCast2D" parent="WallDetection"]
-position = Vector2(0, -27)
-target_position = Vector2(19, 0)
+position = Vector2(0, -170)
+target_position = Vector2(67, 0)
 
 [node name="middleRight" type="RayCast2D" parent="WallDetection"]
-target_position = Vector2(19, 0)
+position = Vector2(0, -30)
+target_position = Vector2(67, 0)
 
 [node name="bottomRight" type="RayCast2D" parent="WallDetection"]
-position = Vector2(0, 31)
-target_position = Vector2(19, 0)
+position = Vector2(0, 90)
+target_position = Vector2(67, 0)
 
 [node name="topLeft" type="RayCast2D" parent="WallDetection"]
-position = Vector2(0, -27)
-target_position = Vector2(-19, 0)
+position = Vector2(0, -170)
+target_position = Vector2(-75, 0)
 hit_from_inside = true
 
 [node name="middleLeft" type="RayCast2D" parent="WallDetection"]
-target_position = Vector2(-19, 0)
+target_position = Vector2(-75, 0)
 
 [node name="bottomLeft" type="RayCast2D" parent="WallDetection"]
-position = Vector2(0, 31)
-target_position = Vector2(-19, 0)
+position = Vector2(0, 90)
+target_position = Vector2(-75, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

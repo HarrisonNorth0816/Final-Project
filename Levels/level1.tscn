@@ -247,6 +247,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2293765, 196608, 4, 2293768, 196608, 4, 2293781, 196608, 4, 2293785, 196608, 4, 2293794, 196608, 4, 2293797, 196608, 4)
 
 [node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(599, 472)
