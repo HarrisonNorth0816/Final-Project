@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmhqo1gn64ntg"]
+[gd_scene load_steps=3 format=3 uid="uid://dmhqo1gn64ntg"]
 
 [ext_resource type="Script" path="res://Levels/Title.gd" id="1_ylwjy"]
+[ext_resource type="AudioStream" uid="uid://3ssc7wecbhg1" path="res://Levels/TitleScreen.wav" id="2_njegv"]
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_ylwjy")
@@ -48,5 +49,9 @@ offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "-START-"
+
+[node name="Title" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_njegv")
+autoplay = true
 
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
