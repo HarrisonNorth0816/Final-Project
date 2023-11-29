@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckcwfsclxrfry"]
+[gd_scene load_steps=5 format=3 uid="uid://blqjcse4o2mn1"]
 
 [ext_resource type="Texture2D" uid="uid://cwq37twdouj6i" path="res://Assets/placeholderLevel.png" id="1_y4l1u"]
 [ext_resource type="PackedScene" uid="uid://frb4d1osvrns" path="res://Player/player.tscn" id="2_5hd2r"]
@@ -17,9 +17,9 @@ texture = ExtResource("1_y4l1u")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ubxo0")
 
-[node name="testLevel" type="Node2D"]
+[node name="Level" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Layer1" type="TileMap" parent="."]
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_fwy8n")
 format = 2

@@ -1,50 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://frb4d1osvrns"]
+[gd_scene load_steps=6 format=3 uid="uid://frb4d1osvrns"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kxmch"]
-[ext_resource type="Texture2D" uid="uid://k73eqvtjr1fl" path="res://Assets/Winter (3).png" id="2_8ab0o"]
-[ext_resource type="AudioStream" uid="uid://bear6xwmykoha" path="res://Assets/Affidavit_A_childs_Lullaby.mp3" id="3_tbw3a"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hyh1l"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(0, 1824, 608, 608)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kiop"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(0, 0, 608, 608)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lij6o"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(0, 1216, 608, 608)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3w00"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(608, 1216, 608, 608)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1okf0"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(0, 1216, 608, 608)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5o2j"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(608, 0, 608, 608)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kfyw"]
-atlas = ExtResource("2_8ab0o")
-region = Rect2(1216, 0, 608, 608)
+[ext_resource type="Texture2D" uid="uid://h1ar6i55s8v8" path="res://Assets/Player/placeholderPlayer.png" id="2_uwajc"]
+[ext_resource type="Texture2D" uid="uid://ctaje6e87xyh0" path="res://Assets/player2.png" id="3_8cqmc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hdsie"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hyh1l")
-}],
-"loop": true,
-"name": &"DarkIdle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7kiop")
+"texture": ExtResource("2_uwajc")
 }],
 "loop": true,
 "name": &"Idle",
@@ -52,24 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lij6o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3w00")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1okf0")
-}],
-"loop": false,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5o2j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4kfyw")
+"texture": ExtResource("3_8cqmc")
 }],
 "loop": true,
 "name": &"Run",
@@ -84,21 +31,46 @@ script = ExtResource("1_kxmch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.25, 0.25)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hdsie")
-animation = &"Run"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_d5q6g")
 
 [node name="DashCooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [node name="FreezeVelocityY" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="WallDetection" type="Node2D" parent="."]
+
+[node name="topRight" type="RayCast2D" parent="WallDetection"]
+position = Vector2(0, -27)
+target_position = Vector2(19, 0)
+
+[node name="middleRight" type="RayCast2D" parent="WallDetection"]
+target_position = Vector2(19, 0)
+
+[node name="bottomRight" type="RayCast2D" parent="WallDetection"]
+position = Vector2(0, 31)
+target_position = Vector2(19, 0)
+
+[node name="topLeft" type="RayCast2D" parent="WallDetection"]
+position = Vector2(0, -27)
+target_position = Vector2(-19, 0)
+hit_from_inside = true
+
+[node name="middleLeft" type="RayCast2D" parent="WallDetection"]
+target_position = Vector2(-19, 0)
+
+[node name="bottomLeft" type="RayCast2D" parent="WallDetection"]
+position = Vector2(0, 31)
+target_position = Vector2(-19, 0)
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="FreezeVelocityY" to="." method="_on_freeze_velocity_y_timeout"]
