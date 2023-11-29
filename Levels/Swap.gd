@@ -3,6 +3,7 @@ extends CollisionShape2D
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Collect"):
 		hide_tileset()
+		hide_sprite()
 
 func hide_tileset():
 	if get_tree().root.get_child(0).has_node("%Layer1"):
@@ -10,3 +11,7 @@ func hide_tileset():
 		%Area2D.queue_free()
 		print("Hi!")
 
+func hide_sprite():
+	if get_tree().root.get_child(0).has_node("%TopLayer"):
+		%TopLayer.queue_free()
+		print("Bye!")
