@@ -83,20 +83,32 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") && canWallJump && !is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		velocity.x = wallJumpDir * maxWalkSpd
+	
+	if freezeVelocityY:
+		velocity.y = 0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
 	movementDir = direction
 	if direction:
+		lastDir = direction
 		velocity.x += direction * acceleration
-		if abs(velocity.x) >= maxWalkSpd:
+		if abs(velocity.x) > minDashSpd:
 			if velocity.x < 0:
-				velocity.x = -maxWalkSpd
+				velocity.x += deceleration
+			if velocity.x > 0:
+				velocity.x -= deceleration
+		elif abs(velocity.x) >= maxWalkSpd && abs(velocity.x) <= minDashSpd:
+			if velocity.x < 0:
+				velocity.x += acceleration
 			elif velocity.x > 0:
-				velocity.x = maxWalkSpd
+				velocity.x -= acceleration
 	else:
-		velocity.x = move_toward(velocity.x, 0, acceleration)
+		if abs(velocity.x) > minDashSpd:
+			velocity.x = move_toward(velocity.x, 0, deceleration)
+		elif abs(velocity.x) <= minDashSpd:
+			velocity.x = move_toward(velocity.x, 0, acceleration)
 
 	move_and_slide()
 
