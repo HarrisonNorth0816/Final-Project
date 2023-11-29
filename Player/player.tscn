@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://frb4d1osvrns"]
+[gd_scene load_steps=15 format=3 uid="uid://frb4d1osvrns"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_kxmch"]
 [ext_resource type="Texture2D" uid="uid://dubruyxj4kb04" path="res://Assets/Winter (3).png" id="2_6d50l"]
+[ext_resource type="Texture2D" uid="uid://v4l8jav6gfpp" path="res://Assets/Winter (4).png" id="3_q4c4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay2xq"]
 atlas = ExtResource("2_6d50l")
@@ -72,6 +73,45 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_un1ik"]
+atlas = ExtResource("3_q4c4f")
+region = Rect2(1216, 1216, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0st4p"]
+atlas = ExtResource("3_q4c4f")
+region = Rect2(1824, 1216, 608, 608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6x5u"]
+atlas = ExtResource("3_q4c4f")
+region = Rect2(1216, 1216, 608, 608)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvu84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un1ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0st4p")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_x6x5u")
+}],
+"loop": true,
+"name": &"IdleI",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"JumpI",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"RunI",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5q6g"]
 size = Vector2(136.667, 270)
 
@@ -88,6 +128,8 @@ animation = &"Run"
 frame_progress = 0.701647
 
 [node name="Inverted" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vvu84")
+animation = &"IdleI"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -38.3333)
