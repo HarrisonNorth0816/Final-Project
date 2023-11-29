@@ -77,7 +77,7 @@ func _physics_process(delta):
 		dash_movement()
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") && is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("jump") && canWallJump && !is_on_floor():
@@ -90,25 +90,13 @@ func _physics_process(delta):
 	movementDir = direction
 	if direction:
 		velocity.x += direction * acceleration
-		if direction > 0:
-			lastDir = 1
-		elif direction < 0:
-			lastDir = -1
-		if abs(velocity.x) >= minDashSpd:
-			if velocity.x < 0:
-				velocity.x += deceleration
-			elif velocity.x > 0:
-				velocity.x -= deceleration
 		if abs(velocity.x) >= maxWalkSpd:
 			if velocity.x < 0:
-				velocity.x += acceleration
+				velocity.x = -maxWalkSpd
 			elif velocity.x > 0:
-				velocity.x -= acceleration
+				velocity.x = maxWalkSpd
 	else:
-		velocity.x = move_toward(velocity.x, 0, deceleration)
-	
-	if freezeVelocityY:
-		velocity.y = 0
+		velocity.x = move_toward(velocity.x, 0, acceleration)
 
 	move_and_slide()
 

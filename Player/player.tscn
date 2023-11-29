@@ -24,9 +24,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5q6g"]
-size = Vector2(28, 60)
+size = Vector2(116, 138.5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Collect"]]
 script = ExtResource("1_kxmch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -36,8 +36,9 @@ sprite_frames = SubResource("SpriteFrames_hdsie")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-7, 1)
 shape = SubResource("RectangleShape2D_d5q6g")
+
 
 [node name="DashCooldown" type="Timer" parent="."]
 wait_time = 0.3
