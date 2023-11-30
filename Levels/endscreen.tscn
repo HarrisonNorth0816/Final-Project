@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vvvvptetg6c3"]
+
+[ext_resource type="Texture2D" uid="uid://wwdk5duhvnrh" path="res://Winter_and_Summer.png" id="1_ym3q4"]
+
+[node name="endscreen" type="Node2D"]
+
+[node name="WinterAndSummer" type="Sprite2D" parent="."]
+position = Vector2(574, 325)
+scale = Vector2(1.154, 0.646)
+texture = ExtResource("1_ym3q4")

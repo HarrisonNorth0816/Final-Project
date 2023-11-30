@@ -11,9 +11,10 @@ func hide_tileset():
 #	var effect = EFFECT.instantiate()
 #	add_child(effect)
 #	effect.global_position = Vector2(500,500)
+	$Layer2.visible = true
 	%Layer1.queue_free()
 	%Item.queue_free()
-#	%Area2D.queue_free()
+	$Area2D.queue_free()
 
 func hide_sprite():
 	print('1')
