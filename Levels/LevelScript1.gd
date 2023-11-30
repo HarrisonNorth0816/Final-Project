@@ -13,7 +13,7 @@ func hide_tileset():
 #	effect.global_position = Vector2(500,500)
 	%Layer1.queue_free()
 	%Item.queue_free()
-	%Area2D.queue_free()
+#	%Area2D.queue_free()
 
 func hide_sprite():
 	print('1')
