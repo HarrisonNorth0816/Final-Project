@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://vasltk6o18qb" path="res://paper.png" id="3_4py3t"]
 [ext_resource type="Texture2D" uid="uid://cc11xusv5bmlg" path="res://final tilemap invert.png" id="4_v7h5f"]
 [ext_resource type="Texture2D" uid="uid://vig1d78ki8xo" path="res://final tilemap.png" id="5_itwt6"]
-[ext_resource type="Script" path="res://Levels/LevelScript6.gd" id="6_214d7"]
+[ext_resource type="Script" path="res://Levels/LevelScript7.gd" id="6_m75rh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ge66c"]
 texture = ExtResource("4_v7h5f")
@@ -470,7 +470,7 @@ position = Vector2(716, 268)
 shape = SubResource("RectangleShape2D_u7xsh")
 
 [node name="Final" type="Area2D" parent="."]
-script = ExtResource("6_214d7")
+script = ExtResource("6_m75rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Final"]
 position = Vector2(604.5, 5.5)
