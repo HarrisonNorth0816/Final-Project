@@ -1,5 +1,6 @@
 extends Node
 
+var death_zone = 1300
 var passed= ["true","false","false","false","false","false"]
 var gamefile="res://level1.tscn"
 
