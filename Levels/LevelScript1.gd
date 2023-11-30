@@ -3,9 +3,11 @@ extends Node2D
 var EFFECT = preload("res://Enviroment/poof.tscn")
 @onready var Player = load("res://Player/Player.tscn")
 var starting_position = Vector2(100,500)
+var levelInverted = false
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Collect"):
+		levelInverted = true
 		hide_tileset()
 		hide_sprite()
 	elif null:

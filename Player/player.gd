@@ -6,6 +6,7 @@ const maxWalkSpd = 300.0
 const JUMP_VELOCITY = -800.0
 var lastDir = 1
 var movementDir
+var checkLevelState = false
 
 # Animation Variables
 var isJumping = false
@@ -30,8 +31,22 @@ var wallCollisionR
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
 func _physics_process(delta):
+	if !checkLevelState:
+		var invertCheck = get_node("/root/Level").get("levelInverted")
+		if invertCheck == true:
+			var topLayer = get_node_or_null("TopLayer")
+			if topLayer != null:
+				topLayer.queue_free()
+		checkLevelState = true
+	
+	var isTopVisible = get_node_or_null("TopLayer")
+	if isTopVisible != null:
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(2, false)
+	else:
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(2, true)
 	
 	if $WallDetection/topLeft.is_colliding || $WallDetection/middleLeft.is_colliding || $WallDetection/bottomLeft.is_colliding:
 		wallCollisionL = $WallDetection/topLeft.get_collider()
