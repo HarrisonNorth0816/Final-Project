@@ -8,6 +8,7 @@ func _on_area_2d_body_entered(body):
 func hide_tileset():
 	print('tiles1')
 	%Layer1.queue_free()
+	%Item.queue_free()
 	print('tiles2')
 	%Area2D.queue_free()
 	print("tiles3")
