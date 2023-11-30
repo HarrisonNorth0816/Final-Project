@@ -65,7 +65,7 @@ func _physics_process(delta):
 	else:
 		slidingOnWall = false
 	
-	if is_on_floor():
+	if is_on_floor() || slidingOnWall:
 		isJumping = false
 	if $Inverted.animation_looped && $Inverted.animation == "DashI2" && !isDashCooldown:
 		isDashing = false

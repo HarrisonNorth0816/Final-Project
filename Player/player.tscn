@@ -260,7 +260,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"WallI",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4depd"]
@@ -478,7 +478,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qsr6e")
 }, {
-"duration": 10.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rqlcb")
 }, {
 "duration": 1.0,
@@ -515,7 +515,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Wall",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5q6g"]
@@ -529,18 +529,16 @@ script = ExtResource("1_kxmch")
 position = Vector2(6.667, -46.667)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_vvu84")
-animation = &"DashI2"
-frame = 5
-frame_progress = 1.0
+animation = &"WallI"
+frame = 3
+frame_progress = 0.514719
 
 [node name="TopLayer" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(6.66669, -46.6667)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_hdsie")
-animation = &"Dash2"
-frame = 5
-frame_progress = 1.0
+animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6.66666, -38.3333)
