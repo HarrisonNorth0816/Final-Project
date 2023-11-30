@@ -296,7 +296,7 @@ sources/0 = SubResource("TileSetAtlasSource_foaem")
 size = Vector2(88, 81)
 
 [sub_resource type="GDScript" id="GDScript_evxu7"]
-script/source = "xtends CollisionShape2D
+script/source = "extends CollisionShape2D
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group(\"Collect\"):
@@ -306,6 +306,7 @@ func _on_area_2d_body_entered(body):
 func hide_tileset():
 	if get_tree().root.get_child(0).has_node(\"%Layer1\"):
 		%Layer1.queue_free()
+		$Poof.emitting = true
 		%Area2D.queue_free()
 		print(\"Hi!\")
 

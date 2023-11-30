@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq84qua87umyy"]
+[gd_scene load_steps=13 format=3 uid="uid://ibpugl13itv4"]
 
-[ext_resource type="Script" path="res://Levels/LevelScript.gd" id="1_8365g"]
-[ext_resource type="PackedScene" uid="uid://frb4d1osvrns" path="res://Player/player.tscn" id="1_dhr2m"]
-[ext_resource type="Texture2D" uid="uid://vasltk6o18qb" path="res://paper.png" id="3_0d56o"]
-[ext_resource type="Texture2D" uid="uid://vig1d78ki8xo" path="res://final tilemap.png" id="3_djx8a"]
-[ext_resource type="Texture2D" uid="uid://cc11xusv5bmlg" path="res://final tilemap invert.png" id="4_th8yx"]
-[ext_resource type="Script" path="res://Levels/Exit1.gd" id="6_ii18q"]
+[ext_resource type="Script" path="res://Levels/LevelScript.gd" id="1_oelgo"]
+[ext_resource type="PackedScene" uid="uid://frb4d1osvrns" path="res://Player/player.tscn" id="2_jyqfm"]
+[ext_resource type="Texture2D" uid="uid://vasltk6o18qb" path="res://paper.png" id="3_fmld2"]
+[ext_resource type="Texture2D" uid="uid://cc11xusv5bmlg" path="res://final tilemap invert.png" id="4_1oic6"]
+[ext_resource type="Texture2D" uid="uid://vig1d78ki8xo" path="res://final tilemap.png" id="5_vddfn"]
+[ext_resource type="Script" path="res://Levels/Exit1.gd" id="6_3ctdo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ge66c"]
-texture = ExtResource("4_th8yx")
+texture = ExtResource("4_1oic6")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -221,7 +221,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ge66c")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7mea"]
-texture = ExtResource("3_djx8a")
+texture = ExtResource("5_vddfn")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -439,16 +439,16 @@ size = Vector2(40, 41)
 size = Vector2(16, 130)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_8365g")
+script = ExtResource("1_oelgo")
 
-[node name="Player" parent="." instance=ExtResource("1_dhr2m")]
+[node name="Player" parent="." instance=ExtResource("2_jyqfm")]
 position = Vector2(141, 515)
 
 [node name="Item" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(873, 326)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_0d56o")
+texture = ExtResource("3_fmld2")
 
 [node name="Layer2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ohjsg")
@@ -470,26 +470,12 @@ position = Vector2(874, 327.5)
 shape = SubResource("RectangleShape2D_u7xsh")
 
 [node name="Exit1" type="Area2D" parent="."]
-script = ExtResource("6_ii18q")
+script = ExtResource("6_3ctdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit1"]
 position = Vector2(1144, 215)
 shape = SubResource("RectangleShape2D_gt6ly")
 debug_color = Color(0.603922, 0.196078, 0.45098, 1)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 26.0
-offset_top = 238.0
-offset_right = 295.0
-offset_bottom = 362.0
-text = "Sliding on walls allows you to jump"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 664.0
-offset_top = 262.0
-offset_right = 1081.0
-offset_bottom = 288.0
-text = "Collect memories to \"swap\" the world and to progress"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Exit1" to="Exit1" method="_on_body_entered"]
