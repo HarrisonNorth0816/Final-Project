@@ -3,8 +3,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Global.passe
-	pass # Replace with function body.
+	if Global.passed[0]=="true":
+		pass # Replace with function body.
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

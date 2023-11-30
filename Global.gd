@@ -1,6 +1,6 @@
 extends Node
 
-var passes= ["true","false","false","false","false","false"]
+var passed= ["true","false","false","false","false","false"]
 var gamefile="res://level1.tscn"
 
 # Called when the node enters the scene tree for the first time.
