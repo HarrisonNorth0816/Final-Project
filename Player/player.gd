@@ -6,12 +6,14 @@ const maxWalkSpd = 300.0
 const JUMP_VELOCITY = -800.0
 var lastDir = 1
 var movementDir
+
+# Animation Variables
 var isJumping = false
+var isDashing = false
 
 # Dash Variables
 const maxDashSpd = 1000.0
 const minDashSpd = 400.0
-var isDashing = false
 var hasDashed = false
 var isDashCooldown = false
 var dashAvailable = true
@@ -65,6 +67,10 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		isJumping = false
+	if $Inverted.animation_looped && $Inverted.animation == "DashI2" && !isDashCooldown:
+		isDashing = false
+	
+	print_debug(isDashing)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -120,13 +126,22 @@ func apply_animation():
 	
 	var animation = get_node_or_null("TopLayer")
 	
+	if isDashing and !slidingOnWall:
+		$Inverted.play("DashI2")
+		if animation != null:
+			$TopLayer.play("Dash2")
 	if !is_on_floor():
-		if !slidingOnWall && !isJumping:
+		if slidingOnWall:
+			$Inverted.animation = "WallI"
+			if animation != null:
+				$TopLayer.animation = "Wall"
+			isJumping = false
+		elif !slidingOnWall && !isJumping && !isDashing:
 			$Inverted.animation = "JumpI"
 			if animation != null:
 				$TopLayer.animation = "Jump"
 			isJumping = true
-	elif is_on_floor() && !isJumping:
+	elif is_on_floor() && !isJumping && !isDashing:
 		if velocity.x != 0:
 			$Inverted.play("RunI")
 			if animation != null:
@@ -147,6 +162,7 @@ func apply_animation():
 
 func dash_movement():
 	velocity.x = lastDir * maxDashSpd
+	isDashing = true
 	hasDashed = true
 	isDashCooldown = true
 	dashAvailable = false
