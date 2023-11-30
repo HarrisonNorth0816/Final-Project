@@ -299,7 +299,7 @@ size = Vector2(88, 81)
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ndoc8")]
-position = Vector2(87, 537)
+position = Vector2(95, 290)
 
 [node name="Layer2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ohjsg")
