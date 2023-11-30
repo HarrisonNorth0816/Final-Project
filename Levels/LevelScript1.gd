@@ -2,7 +2,26 @@ extends Node2D
 
 var EFFECT = preload("res://Enviroment/poof.tscn")
 @onready var Player = load("res://Player/Player.tscn")
+@onready var pause_menu = $pause
+var paused = false
 var starting_position = Vector2(100,500)
+
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+	
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+		
+	
+	paused != paused
+		
+
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Collect"):

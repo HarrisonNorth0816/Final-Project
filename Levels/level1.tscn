@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq84qua87umyy"]
+[gd_scene load_steps=15 format=3 uid="uid://cq84qua87umyy"]
 
 [ext_resource type="PackedScene" uid="uid://frb4d1osvrns" path="res://Player/player.tscn" id="1_dhr2m"]
 [ext_resource type="Script" path="res://Levels/LevelScript1.gd" id="1_x2l8d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vig1d78ki8xo" path="res://final tilemap.png" id="3_djx8a"]
 [ext_resource type="Texture2D" uid="uid://cc11xusv5bmlg" path="res://final tilemap invert.png" id="4_th8yx"]
 [ext_resource type="Script" path="res://Levels/Exit1.gd" id="6_ii18q"]
+[ext_resource type="PackedScene" uid="uid://bqytgsijyl2xw" path="res://Levels/pause.tscn" id="8_pqot6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ge66c"]
 texture = ExtResource("4_th8yx")
@@ -507,6 +508,14 @@ offset_right = 453.0
 offset_bottom = 427.0
 scale = Vector2(1.49433, 2.31325)
 text = "Shift allows you to dash"
+
+[node name="pause" parent="." instance=ExtResource("8_pqot6")]
+visible = false
+offset_left = 582.0
+offset_top = 319.0
+offset_right = 582.0
+offset_bottom = 319.0
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Exit1" to="Exit1" method="_on_body_entered"]
