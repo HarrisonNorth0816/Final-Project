@@ -6,6 +6,7 @@ const maxWalkSpd = 300.0
 const JUMP_VELOCITY = -800.0
 var lastDir = 1
 var movementDir
+var isJumping = false
 
 # Dash Variables
 const maxDashSpd = 1000.0
@@ -62,6 +63,9 @@ func _physics_process(delta):
 	else:
 		slidingOnWall = false
 	
+	if is_on_floor():
+		isJumping = false
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -109,8 +113,37 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, deceleration)
 		elif abs(velocity.x) <= minDashSpd:
 			velocity.x = move_toward(velocity.x, 0, acceleration)
-
+	apply_animation()
 	move_and_slide()
+
+func apply_animation():
+	
+	var animation = get_node_or_null("TopLayer")
+	
+	if !is_on_floor():
+		if !slidingOnWall && !isJumping:
+			$Inverted.animation = "JumpI"
+			if animation != null:
+				$TopLayer.animation = "Jump"
+			isJumping = true
+	elif is_on_floor() && !isJumping:
+		if velocity.x != 0:
+			$Inverted.play("RunI")
+			if animation != null:
+				$TopLayer.play("Run")
+		else:
+			$Inverted.play("IdleI")
+			if animation != null:
+				$TopLayer.play("Idle")
+	
+	if lastDir < 0:
+		$Inverted.flip_h = true
+		if animation != null:
+			$TopLayer.flip_h = true
+	else:
+		$Inverted.flip_h = false
+		if animation != null:
+			$TopLayer.flip_h = false
 
 func dash_movement():
 	velocity.x = lastDir * maxDashSpd
@@ -126,5 +159,4 @@ func _on_dash_cooldown_timeout():
 
 func _on_freeze_velocity_y_timeout():
 	freezeVelocityY = false
-
 
