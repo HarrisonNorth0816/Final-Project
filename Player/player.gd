@@ -122,6 +122,9 @@ func _physics_process(delta):
 	apply_animation()
 	move_and_slide()
 
+	if position.y > Global.death_zone:
+		queue_free()
+
 func apply_animation():
 	
 	var animation = get_node_or_null("TopLayer")

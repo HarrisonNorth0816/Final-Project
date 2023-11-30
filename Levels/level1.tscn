@@ -442,7 +442,8 @@ size = Vector2(16, 130)
 script = ExtResource("1_x2l8d")
 
 [node name="Player" parent="." instance=ExtResource("1_dhr2m")]
-position = Vector2(141, 515)
+position = Vector2(86, 508)
+scale = Vector2(0.3, 0.3)
 
 [node name="Item" type="Sprite2D" parent="."]
 unique_name_in_owner = true

@@ -1,6 +1,8 @@
 extends Node2D
 
 var EFFECT = preload("res://Enviroment/poof.tscn")
+@onready var Player = load("res://Player/Player.tscn")
+var starting_position = Vector2(100,500)
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Collect"):
@@ -22,3 +24,12 @@ func hide_sprite():
 	print('2')
 	sprite.queue_free()
 	print('3')
+	
+func spawn(pos):
+	if not has_node("Player"):
+		var player = Player.instantiate()
+		player.position = starting_position
+		add_child(player)
+
+func _physics_process(_delta):
+	spawn(starting_position)
