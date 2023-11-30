@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Levels/LevelScript1.gd" id="1_lu13t"]
 [ext_resource type="Texture2D" uid="uid://dbyped0y78efh" path="res://Levels/trees.png" id="2_0jb1s"]
 [ext_resource type="PackedScene" uid="uid://frb4d1osvrns" path="res://Player/player.tscn" id="2_xdcp3"]
-[ext_resource type="Texture2D" uid="uid://vasltk6o18qb" path="res://paper.png" id="3_lw4eg"]
 [ext_resource type="Texture2D" uid="uid://cc11xusv5bmlg" path="res://final tilemap invert.png" id="4_pjj3e"]
+[ext_resource type="Texture2D" uid="uid://bcvntukc8cbe4" path="res://sprite_3.png" id="4_qidix"]
 [ext_resource type="Texture2D" uid="uid://vig1d78ki8xo" path="res://final tilemap.png" id="5_5dkko"]
 [ext_resource type="Script" path="res://Levels/LevelScript4.gd" id="6_jf1b2"]
 
@@ -454,7 +454,7 @@ position = Vector2(141, 515)
 unique_name_in_owner = true
 position = Vector2(382, 431)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_lw4eg")
+texture = ExtResource("4_qidix")
 
 [node name="Layer2" type="TileMap" parent="."]
 visible = false
