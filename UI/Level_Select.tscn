@@ -1,4 +1,75 @@
-[gd_scene format=3 uid="uid://cdbybda46djac"]
+[gd_scene load_steps=8 format=3 uid="uid://cdbybda46djac"]
+
+[ext_resource type="Script" path="res://UI/Level_Select.gd" id="1_d18kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewqtq"]
+bg_color = Color(0.101961, 0.109804, 0.235294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.196078, 0.141176, 0.482353, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bs577"]
+bg_color = Color(0.294118, 0.188235, 0.639216, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.258824, 0.12549, 0.529412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f36at"]
+bg_color = Color(0.537255, 0.470588, 0.937255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.407843, 0.309804, 0.858824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77uwk"]
+bg_color = Color(0.341176, 0.282353, 0.662745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.470588, 0.372549, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n4qj"]
+bg_color = Color(0.341176, 0.282353, 0.662745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.470588, 0.372549, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_jkkes"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_ewqtq")
+Button/styles/focus = SubResource("StyleBoxFlat_bs577")
+Button/styles/hover = SubResource("StyleBoxFlat_f36at")
+Button/styles/normal = SubResource("StyleBoxFlat_77uwk")
+Button/styles/pressed = SubResource("StyleBoxFlat_6n4qj")
 
 [node name="Level_Select" type="Control"]
 layout_mode = 3
@@ -7,3 +78,163 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d18kp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Select
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -124.0
+offset_right = -130.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+text = "T"
+
+[node name="Level4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -4.0
+offset_right = -130.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+disabled = true
+toggle_mode = true
+text = "4"
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -124.0
+offset_right = 110.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+disabled = true
+text = "2
+"
+
+[node name="Level6" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -4.0
+offset_right = 110.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+disabled = true
+text = "6"
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 130.0
+offset_top = -124.0
+offset_right = 230.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+disabled = true
+text = "3
+"
+
+[node name="Level1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -124.0
+offset_right = -10.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+text = "1
+"
+
+[node name="Level5" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -4.0
+offset_right = -10.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jkkes")
+disabled = true
+text = "5
+"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 151.0
+offset_right = 100.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
