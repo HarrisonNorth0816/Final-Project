@@ -256,7 +256,7 @@ layer_0/tile_data = PackedInt32Array(1310720, 196609, 0, 1310721, 196609, 0, 131
 position = Vector2(344, 260)
 scale = Vector2(0.195724, 0.210526)
 sprite_frames = SubResource("SpriteFrames_yds3i")
-frame_progress = 0.0808888
+frame_progress = 0.0877402
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(848, 259)

@@ -8,7 +8,9 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Collect"):
 		hide_tileset()
 		hide_sprite()
-
+	elif null:
+		%Layer2.set_process(false)
+	
 func hide_tileset():
 #	var effect = EFFECT.instantiate()
 #	add_child(effect)
