@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmicuhqd84v8a"]
+[gd_scene load_steps=14 format=3 uid="uid://bmicuhqd84v8a"]
 
 [ext_resource type="Script" path="res://Levels/LevelScript1.gd" id="1_h07gj"]
 [ext_resource type="PackedScene" uid="uid://frb4d1osvrns" path="res://Player/player.tscn" id="2_5ng2h"]
+[ext_resource type="Texture2D" uid="uid://dbyped0y78efh" path="res://Levels/trees.png" id="2_260uo"]
 [ext_resource type="Texture2D" uid="uid://vasltk6o18qb" path="res://paper.png" id="3_4x7sk"]
 [ext_resource type="Texture2D" uid="uid://cc11xusv5bmlg" path="res://final tilemap invert.png" id="4_lji08"]
 [ext_resource type="Texture2D" uid="uid://vig1d78ki8xo" path="res://final tilemap.png" id="5_eguuj"]
@@ -440,6 +441,11 @@ size = Vector2(16, 130)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_h07gj")
+
+[node name="Trees" type="Sprite2D" parent="."]
+position = Vector2(569, 326)
+scale = Vector2(1, 1.09259)
+texture = ExtResource("2_260uo")
 
 [node name="Player" parent="." instance=ExtResource("2_5ng2h")]
 position = Vector2(141, 515)
